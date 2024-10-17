@@ -59,7 +59,7 @@ export default function Navbar({style}) {
 
         {/* My Bookings Button */}
         <Grid item>
-          <Button sx={{ backgroundColor: "#2aa7ff", color: "#fff", textTransform: "none" }}>
+          <Button sx={{ backgroundColor: "#2aa7ff", color: "#fff", textTransform: "none" }} onClick={()=>{navigate("/bookings")}}>
             My Bookings
           </Button>
         </Grid>
