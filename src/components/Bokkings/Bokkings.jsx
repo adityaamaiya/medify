@@ -28,17 +28,19 @@ export default function Bokkings() {
       <Navbar style={{ backgroundColor: "#fff" }} />
       <Box sx={{ display: "flex" }}>
         <Box>
-          {bookingsArrayy.map((booking, index) => (
-            <CenterCard
-              key={index}
-              name={booking.name}
-              address={booking.address}
-              type={booking.type}
-              appoinmenttime={booking.time}
-              day={handleDay(booking)}
-              booking={true}
-            />
-          ))}
+          {bookingsArrayy
+            ? bookingsArrayy.map((booking, index) => (
+                <CenterCard
+                  key={index}
+                  name={booking.name}
+                  address={booking.address}
+                  type={booking.type}
+                  appoinmenttime={booking.time}
+                  day={handleDay(booking)}
+                  booking={true}
+                />
+              ))
+            : "No bookings"}
         </Box>
         <img
           src={campaign}
