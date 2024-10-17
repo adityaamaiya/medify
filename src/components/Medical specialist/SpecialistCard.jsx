@@ -12,14 +12,14 @@ export default function ActionAreaCard({ name, specialist, src }) {
     minWidth: "365px",
     maxWidth: "fit-content",
     height: "450px",
-    width: "365",
+    
     boxShadow: "none",
     cursor: "pointer",
   }}
 >
   <CardMedia
     component="img"
-    height="360px"
+    height="350px"
     width="100%"
     image={src}
     alt="Loading..."

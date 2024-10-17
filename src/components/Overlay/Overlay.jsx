@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import ServiceCard from "../ServiceCard/ServiceCard";
 import hospitalIcon from "../../assets/hospital.svg";
@@ -9,23 +9,43 @@ import labsIcon from "../../assets/labs.svg";
 import Search from "../Search/Search";
 import Button from "../Button/Button"; // Your custom button
 import searchIcon from "../../assets/search2.svg"; // Import the search icon
+import searchIcon2 from "../../assets/search.svg"; // Import the search icon
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Overlay() {
   const [selectedCard, setSelectedCard] = useState(null);
   const [selectedState, setSelectedState] = useState(null); // State for the selected state
   const [selectedCity, setSelectedCity] = useState(null); // State for the selected city
+  const navigate = useNavigate();
 
   // Function to set the selected card
   const handleCardClick = (title) => {
     setSelectedCard(title); // Set the selected card title
   };
 
-  const handleSearch = async(state, city) => {
-    // Handle the search logic here
-    const result = await axios.get(`https://meddata-backend.onrender.com/data?state=${selectedState}&city=${selectedCity}`);
-    console.log(result.data);
+  const handleSearch = async (state, city) => {
+    // Ensure state and city are selected
+    if (!state || !city) {
+      console.log("Please select both state and city.");
+      return;
+    }
+
+    try {
+      console.log("Searching for State:", state, "and City:", city); // Debugging log
+      const result = await axios.get(
+        `https://meddata-backend.onrender.com/data?state=${state}&city=${city}`
+      );
+      console.log("API Response:", result.data); // Log result data for debugging
+
+      // Navigate to the search results page and pass the result data
+      navigate("/search", { state: { result: result.data } });
+    } catch (error) {
+      console.error("Error fetching data:", error); // Log any errors
+    }
   };
+
+  
 
   return (
     <Box
@@ -59,11 +79,13 @@ export default function Overlay() {
           placeholder="State"
           type="state"
           selectedValue={selectedState}
+          icon={<img src={searchIcon2} alt="state icon" style={{ width: "20px", height: "20px" }} />}
           onSelect={setSelectedState} // Callback to set the selected state
         />
         <Search
           placeholder="City"
           type="city"
+          icon={<img src={searchIcon2} alt="state icon" style={{ width: "20px", height: "20px" }} />}
           selectedState={selectedState} // Pass the selected state
           selectedValue={selectedCity}
           onSelect={setSelectedCity} // Callback to set the selected city
@@ -73,10 +95,15 @@ export default function Overlay() {
           style={{
             height: "50px",
           }}
-          onClick={
-            
-            handleSearch(selectedState, selectedCity)
-          }
+          onClick={() => {
+            console.log(
+              "Button clicked with state:",
+              selectedState,
+              "and city:",
+              selectedCity
+            );
+            handleSearch(selectedState, selectedCity);
+          }} // Ensure this is a function reference
         >
           Search
         </Button>
@@ -99,7 +126,11 @@ export default function Overlay() {
         You may be looking for
       </Typography>
 
-      <Grid container spacing={4} sx={{ marginTop: "0px", flexWrap: "wrap", justifyContent: "center" }}>
+      <Grid
+        container
+        spacing={4}
+        sx={{ marginTop: "0px", flexWrap: "wrap", justifyContent: "center" }}
+      >
         <Grid item>
           <ServiceCard
             icon={doctorIcon}

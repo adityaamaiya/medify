@@ -1,21 +1,24 @@
 import { Toolbar, Grid, Typography } from "@mui/material";
 import logo from "../../assets/logo.svg";
 import Button from "../Button/Button"; // Import your custom button component
+import { useNavigate } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({style}) {
+  const navigate = useNavigate();
   return (
     <Toolbar
+    
       sx={{
         display: "flex",
         justifyContent:"flex-end",// Use space-between to ensure elements are distributed
         alignItems: "center",
        
-        background:
-          "linear-gradient(81deg, #e7f0ff 9.01%, rgba(232, 241, 255, 0.47) 89.11%)",
+        
       }}
+      style={style}
     >
       {/* Logo Section */}
-      <div style={{ display: "flex", alignItems: "center",left: "180px " ,position: "absolute",marginRight:"100px" }}>
+      <div style={{ display: "flex", alignItems: "center",left: "180px " ,position: "absolute",marginRight:"100px" , cursor:"pointer"}} onClick={()=>{navigate("/")}}>
         <img src={logo} alt="Medify logo" />
         <Typography variant="h6" sx={{ color: "#2aa8ff", fontWeight: 700, marginLeft: 1 }}>
           Medify

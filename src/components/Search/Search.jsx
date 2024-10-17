@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { TextField, Box } from "@mui/material";
+import { TextField, Box, InputAdornment } from "@mui/material";
 import Autocomplete from '@mui/material/Autocomplete';
 import axios from "axios";
 
-export default function Search({ placeholder, type, selectedState, selectedValue, onSelect }) {
+export default function Search({ placeholder, icon, type, selectedState, selectedValue, onSelect }) {
   const [options, setOptions] = useState([]);
 
   const fetchOptions = async () => {
@@ -16,8 +16,10 @@ export default function Search({ placeholder, type, selectedState, selectedValue
       }
 
       if (apiUrl) {
+        console.log("Fetching data from API:", apiUrl); // Debugging log
         const result = await axios.get(apiUrl);
         const data = result.data;
+        console.log("Received options:", data); // Log the fetched options
         setOptions(data);
       }
     } catch (error) {
@@ -31,32 +33,35 @@ export default function Search({ placeholder, type, selectedState, selectedValue
   }, [selectedState]); // Refetch options when selectedState changes
 
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 2, mb: 2 }}>
+    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 2, mb: 2, backgroundColor: "#fff" }}>
       <Autocomplete
         disablePortal
         options={options}
         value={selectedValue}
-        onChange={(event, newValue) => onSelect(newValue)} // Handle selection
+        onChange={(event, newValue) => {
+          console.log("Selected value:", newValue); // Debugging selection
+          onSelect(newValue); // Handle selection
+        }}
         sx={{
           width: "300px",
           height: "50px",
           borderRadius: "8px",
-          backgroundColor: "#fafbfe",
-          "& .MuiOutlinedInput-root": {
-            paddingLeft: "40px",
-            fontFamily: "Poppins",
-            fontSize: "14px",
-            fontWeight: 400,
-            color: "#abb6c7",
-            "& fieldset": {
-              borderColor: "#f0f0f0",
-            },
-            "&:hover fieldset": {
-              borderColor: "#2aa7ff",
-            },
-          },
+          backgroundColor: "#fff",
         }}
-        renderInput={(params) => <TextField {...params} placeholder={placeholder} />}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            placeholder={placeholder}
+            InputProps={{
+              ...params.InputProps,
+              startAdornment: (
+                <InputAdornment position="start">
+                  {icon}
+                </InputAdornment>
+              ),
+            }}
+          />
+        )}
       />
     </Box>
   );

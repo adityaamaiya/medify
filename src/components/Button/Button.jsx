@@ -1,7 +1,7 @@
 import React from "react";
 import { Button as MUIButton, Box } from "@mui/material";
 
-export default function Button({ children, icon, style }) {
+export default function Button({ children, icon, style, onClick }) { // Accept onClick as a prop
   return (
     <MUIButton
       variant="contained"
@@ -27,6 +27,7 @@ export default function Button({ children, icon, style }) {
         },
         ...style, // Apply any inline styles passed as props
       }}
+      onClick={onClick} // Ensure the click event is passed down
     >
       {children}
     </MUIButton>
