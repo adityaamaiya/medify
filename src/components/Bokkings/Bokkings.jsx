@@ -12,35 +12,44 @@ import CenterCard from "../SearchPage/CenterCard";
 import campaign from "../../assets/campaign.svg";
 
 export default function Bokkings() {
-    const bookingsArrayy = JSON.parse(localStorage.getItem("bookings")) || [];
-    const handleDay = (booking)=> {
-        if(booking.day === "one"){
-            return "Today";
-        }
-        else if(booking.day === "two"){
-            return "Tomorrow";
-        }
-        else{
-            return "Day after Tomorrow";
-        }
+  const bookingsArrayy = JSON.parse(localStorage.getItem("bookings")) || [];
+  const handleDay = (booking) => {
+    if (booking.day === "one") {
+      return "Today";
+    } else if (booking.day === "two") {
+      return "Tomorrow";
+    } else {
+      return "Day after Tomorrow";
     }
+  };
   return (
     <ThemeProvider theme={theme}>
       <Header />
       <Navbar style={{ backgroundColor: "#fff" }} />
-      <Box sx={{display:"flex", }}>
-      <Box>{bookingsArrayy.map((booking, index) => (
-        <CenterCard
-          key={index}
-          name={booking.name}
-          address={booking.address}
-          type={booking.type}
-          appoinmenttime={booking.time}
-          day={handleDay(booking)}
-          booking={true}
+      <Box sx={{ display: "flex" }}>
+        <Box>
+          {bookingsArrayy.map((booking, index) => (
+            <CenterCard
+              key={index}
+              name={booking.name}
+              address={booking.address}
+              type={booking.type}
+              appoinmenttime={booking.time}
+              day={handleDay(booking)}
+              booking={true}
+            />
+          ))}
+        </Box>
+        <img
+          src={campaign}
+          alt="campaign"
+          style={{
+            width: "363px",
+            height: "268px",
+            marginTop: "20px",
+            marginLeft: "20px",
+          }}
         />
-      ))}</Box>
-      <img src={campaign} alt="campaign" style={{ width: "363px", height: "268px", marginTop: "20px", marginLeft:"20px" }} />
       </Box>
       <FAQ />
       <MedifyApp />

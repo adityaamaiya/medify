@@ -9,12 +9,12 @@ export default function FAQ() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        
+
         padding: "50px",
         background: "#ffff",
       }}
     >
-        <img src={faq} alt="news" sx={{ width: "100%" }} />
+      <img src={faq} alt="news" sx={{ width: "100%" }} />
     </Box>
   );
 }

@@ -45,8 +45,6 @@ export default function Overlay() {
     }
   };
 
-  
-
   return (
     <Box
       sx={{
@@ -79,13 +77,25 @@ export default function Overlay() {
           placeholder="State"
           type="state"
           selectedValue={selectedState}
-          icon={<img src={searchIcon2} alt="state icon" style={{ width: "20px", height: "20px" }} />}
+          icon={
+            <img
+              src={searchIcon2}
+              alt="state icon"
+              style={{ width: "20px", height: "20px" }}
+            />
+          }
           onSelect={setSelectedState} // Callback to set the selected state
         />
         <Search
           placeholder="City"
           type="city"
-          icon={<img src={searchIcon2} alt="state icon" style={{ width: "20px", height: "20px" }} />}
+          icon={
+            <img
+              src={searchIcon2}
+              alt="state icon"
+              style={{ width: "20px", height: "20px" }}
+            />
+          }
           selectedState={selectedState} // Pass the selected state
           selectedValue={selectedCity}
           onSelect={setSelectedCity} // Callback to set the selected city

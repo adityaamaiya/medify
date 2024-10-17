@@ -14,7 +14,7 @@ export default function ServiceCard({ icon, Title, selected, onClick }) {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-       
+
         padding: "10px",
         cursor: "pointer",
         transition: "all 0.3s ease",

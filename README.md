@@ -1,6 +1,5 @@
 # MEDIFY - Medical Center Slot Booking Platform
 
-
 ## Project Overview
 
 MEDIFY is a React-based web application designed to help users find medical centers in various states and cities across the USA and book appointments conveniently. The platform allows users to choose available time slots and centers, and view their bookings.

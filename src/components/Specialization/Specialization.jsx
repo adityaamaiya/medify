@@ -40,7 +40,6 @@ export default function Specialization() {
         spacing={4}
         justifyContent="center"
         alignItems="center"
-       
         width={"60%"}
       >
         <Grid item lg={3}>
@@ -67,7 +66,6 @@ export default function Specialization() {
         <Grid item lg={3}>
           <ServiceCard icon={xrayIcon} Title="X-Ray" />
         </Grid>
-        
       </Grid>
     </Box>
   );

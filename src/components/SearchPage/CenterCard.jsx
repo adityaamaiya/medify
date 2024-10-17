@@ -122,8 +122,15 @@ export default function CenterCard({
         >
           {booking ? (
             <>
-              <Button variant="outlined" sx={{margin:"10px"}}>{appoinmenttime}</Button>
-              <Button variant="outlined" sx={{color:"green", borderColor:"green"}}>{day}</Button>
+              <Button variant="outlined" sx={{ margin: "10px" }}>
+                {appoinmenttime}
+              </Button>
+              <Button
+                variant="outlined"
+                sx={{ color: "green", borderColor: "green" }}
+              >
+                {day}
+              </Button>
             </>
           ) : (
             <>

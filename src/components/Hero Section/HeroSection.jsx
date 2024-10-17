@@ -83,13 +83,12 @@ export default function HeroSection() {
           height: "735.94px",
           angle: "-180 deg",
           "@media (max-width: 768px)": {
-          width: "50%", // Adjust width for small screens
-          left: "50%",
-          transform: "translateX(-50%)",
-          top: "400px", // Adjust the position
-        },
+            width: "50%", // Adjust width for small screens
+            left: "50%",
+            transform: "translateX(-50%)",
+            top: "400px", // Adjust the position
+          },
         }}
-
       >
         <img
           src={heroImage}

@@ -1,9 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import SearchPage from './components/SearchPage/SearchPage';
-import Bookings from './components/Bokkings/Bokkings';
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./Home";
+import SearchPage from "./components/SearchPage/SearchPage";
+import Bookings from "./components/Bokkings/Bokkings";
 
 function App() {
   return (

@@ -25,14 +25,19 @@ export const theme = createTheme({
 });
 
 // Data for Carousel component
-const data1 = [caraouselImg1, caraouselImg2, caraouselImg1,caraouselImg2];
+const data1 = [caraouselImg1, caraouselImg2, caraouselImg1, caraouselImg2];
 
 function Home() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline /> {/* This will apply the global styles and font */}
       <Header />
-      <Navbar style={{ background: "linear-gradient(81deg, #e7f0ff 9.01%, rgba(232, 241, 255, 0.47) 89.11%)" }} />
+      <Navbar
+        style={{
+          background:
+            "linear-gradient(81deg, #e7f0ff 9.01%, rgba(232, 241, 255, 0.47) 89.11%)",
+        }}
+      />
       <HeroSection />
       <Overlay />
       <Caraousel data={data1} /> {/* Pass the data array to the Carousel */}

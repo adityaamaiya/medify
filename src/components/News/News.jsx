@@ -9,12 +9,12 @@ export default function News() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        
+
         padding: "50px",
         background: "#ffff",
       }}
     >
-        <img src={news} alt="news" sx={{ width: "100%" }} />
+      <img src={news} alt="news" sx={{ width: "100%" }} />
     </Box>
   );
 }

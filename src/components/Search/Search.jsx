@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { TextField, Box, InputAdornment } from "@mui/material";
-import Autocomplete from '@mui/material/Autocomplete';
+import Autocomplete from "@mui/material/Autocomplete";
 import axios from "axios";
 
-export default function Search({ placeholder, icon, type, selectedState, selectedValue, onSelect }) {
+export default function Search({
+  placeholder,
+  icon,
+  type,
+  selectedState,
+  selectedValue,
+  onSelect,
+}) {
   const [options, setOptions] = useState([]);
 
   const fetchOptions = async () => {
@@ -33,7 +40,16 @@ export default function Search({ placeholder, icon, type, selectedState, selecte
   }, [selectedState]); // Refetch options when selectedState changes
 
   return (
-    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 2, mb: 2, backgroundColor: "#fff" }}>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        mt: 2,
+        mb: 2,
+        backgroundColor: "#fff",
+      }}
+    >
       <Autocomplete
         disablePortal
         options={options}
@@ -55,9 +71,7 @@ export default function Search({ placeholder, icon, type, selectedState, selecte
             InputProps={{
               ...params.InputProps,
               startAdornment: (
-                <InputAdornment position="start">
-                  {icon}
-                </InputAdornment>
+                <InputAdornment position="start">{icon}</InputAdornment>
               ),
             }}
           />

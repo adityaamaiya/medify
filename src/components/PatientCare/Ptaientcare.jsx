@@ -9,13 +9,13 @@ export default function PatientCare() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        
+
         padding: "50px",
         background:
           "linear-gradient(81deg, #E7F0FF 9.01%, rgba(232, 241, 255, 0.47) 89.11%)",
       }}
     >
-        <img src={patientCare} alt="Patient Care" sx={{ width: "100%" }} />
+      <img src={patientCare} alt="Patient Care" sx={{ width: "100%" }} />
     </Box>
   );
 }

@@ -74,15 +74,27 @@ export default function SearchPage() {
           <Search
             placeholder="State"
             type="state"
-            icon={<img src={locationIcon} alt="state icon" style={{ width: "20px", height: "20px" }} />}
+            icon={
+              <img
+                src={locationIcon}
+                alt="state icon"
+                style={{ width: "20px", height: "20px" }}
+              />
+            }
             selectedValue={selectedState}
-            onSelect={setSelectedState} 
+            onSelect={setSelectedState}
             // Callback to set the selected state
           />
           <Search
             placeholder="City"
             type="city"
-            icon={<img src={locationIcon} alt="state icon" style={{ width: "20px", height: "20px" }} />}
+            icon={
+              <img
+                src={locationIcon}
+                alt="state icon"
+                style={{ width: "20px", height: "20px" }}
+              />
+            }
             selectedState={selectedState} // Pass the selected state
             selectedValue={selectedCity}
             onSelect={setSelectedCity} // Callback to set the selected city
@@ -131,19 +143,32 @@ export default function SearchPage() {
             }}
           />
         </Box>
-        <Box sx={{display: "flex", flexDirection: "row", alignItems: "flex-start", marginTop: "20px" , justifyContent: "space-between",  marginRight: "200px"}}>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "flex-start",
+            marginTop: "20px",
+            justifyContent: "space-between",
+            marginRight: "200px",
+          }}
+        >
           <Box>
-          {result.map((item) => (
-            <CenterCard
-              key={item["Provider ID"]}
-              name={item["Hospital Name"]}
-              address={item["Address"]}
-              type={item["Hospital Type"]}
-              booking={false}
-            />
-          ))}
+            {result.map((item) => (
+              <CenterCard
+                key={item["Provider ID"]}
+                name={item["Hospital Name"]}
+                address={item["Address"]}
+                type={item["Hospital Type"]}
+                booking={false}
+              />
+            ))}
           </Box>
-          <img src={campaign} alt="campaign" style={{ width: "363px", height: "268px", marginTop: "20px" }} />
+          <img
+            src={campaign}
+            alt="campaign"
+            style={{ width: "363px", height: "268px", marginTop: "20px" }}
+          />
         </Box>
       </div>
       <FAQ />
