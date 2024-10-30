@@ -67,7 +67,7 @@ MEDIFY is a React-based web application designed to help users find medical cent
 ## API Integration
 
 The state and city dropdowns are populated by calling an API. Ensure the API endpoint is functional and returns the correct data. Example:
-\`\`\`javascript
+```javascript
 const fetchStates = async () => {
 const response = await fetch("API_ENDPOINT_FOR_STATES");
 const data = await response.json();
@@ -79,7 +79,7 @@ const response = await fetch(\`API_ENDPOINT_FOR_CITIES/\${stateId}\`);
 const data = await response.json();
 setCities(data);
 };
-\`\`\`
+```
 
 ## Future Enhancements
 
@@ -91,4 +91,4 @@ setCities(data);
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-"""
+
