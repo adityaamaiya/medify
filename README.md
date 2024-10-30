@@ -40,22 +40,22 @@ MEDIFY is a React-based web application designed to help users find medical cent
 ## Installation
 
 1. Clone the repository:
-   \`\`\`bash
+   ```bash
    https://github.com/adityaamaiya/medify.git
-   \`\`\`
+   ```
 2. Navigate into the project directory:
-   \`\`\`bash
+   ```bash
    cd MEDIFY
-   \`\`\`
+   ```
 3. Install dependencies:
-   \`\`\`bash
+   ```bash
    npm install
-   \`\`\`
+   ```
 
 4. Run the application:
-   \`\`\`bash
+   ```bash
    npm start
-   \`\`\`
+   ```
 
 ## Usage
 
